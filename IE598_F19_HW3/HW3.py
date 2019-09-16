@@ -77,6 +77,17 @@ _ = plt.ylabel('ECDF')
 # Display the plot
 plt.show()
 
+# Create box plot with Seaborn's default settings
+_ =sns.boxplot(bond_type,Client_Trade_Percentage)
+
+# Label the axes
+_ = plt.xlabel('bond type')
+_ = plt.ylabel('Client trade percentage')
+
+
+# Show the plot
+plt.show()
+
 #heat map
 from pandas import DataFrame
 corMat = DataFrame(df.corr())
