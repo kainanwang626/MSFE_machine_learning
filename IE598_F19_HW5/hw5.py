@@ -177,3 +177,7 @@ rmse_test = np.sqrt(mean_squared_error(y_test_pca,y_pred_test))
 rmse_train = np.sqrt(mean_squared_error(y_train_pca,y_pred_train))
 print("Root Mean Squared Error for train set: {}".format(rmse_train))
 print("Root Mean Squared Error for test set: {}".format(rmse_test))
+
+print("My name is {Kainan Wang}")
+print("My NetID is: {kainanw2}")
+print("I hereby certify that I have read the University policy on Academic Integrity and that I am not in violation.")
