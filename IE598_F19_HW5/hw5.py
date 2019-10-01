@@ -113,3 +113,67 @@ rmse_train = np.sqrt(mean_squared_error(y_train,y_pred_train))
 print("Root Mean Squared Error for train set: {}".format(rmse_train))
 print("Root Mean Squared Error for test set: {}".format(rmse_test))
 
+
+#Linear regression on 3 components
+X_pca= pca.transform(df)
+X_train_pca, X_test_pca, y_train_pca, y_test_pca = train_test_split(X_pca, y, test_size = 0.15, random_state=42)
+
+# Linear Model
+
+# Create the regressor: reg_pca
+reg_pca = LinearRegression()
+
+# Fit the regressor to the training data
+reg_pca.fit(X_train_pca,y_train_pca)
+
+# Predict on the test data: y_pred
+y_pred_train = reg_pca.predict(X_train_pca)
+y_pred_test = reg_pca.predict(X_test_pca)
+
+# Compute and print R^2 and RMSE
+print("R^2 for train set: {}".format(reg_pca.score(X_train_pca, y_train_pca)))
+print("R^2 for test set: {}".format(reg_pca.score(X_test_pca, y_test_pca)))
+rmse_test = np.sqrt(mean_squared_error(y_test_pca,y_pred_test))
+rmse_train = np.sqrt(mean_squared_error(y_train_pca,y_pred_train))
+print("Root Mean Squared Error for train set: {}".format(rmse_train))
+print("Root Mean Squared Error for test set: {}".format(rmse_test))
+
+#SVR
+from sklearn.svm import SVR
+from sklearn.model_selection import GridSearchCV
+
+# Instantiate an RBF SVM
+svr =SVR()
+svr.fit(X_train,y_train)
+
+#Predict on both train and test data
+y_pred_train = svr.predict(X_train)
+y_pred_test = svr.predict(X_test)
+
+# Compute and print R^2 and RMSE
+print("R^2 for train set: {}".format(svr.score(X_train, y_train)))
+print("R^2 for test set: {}".format(svr.score(X_test, y_test)))
+rmse_test = np.sqrt(mean_squared_error(y_test,y_pred_test))
+rmse_train = np.sqrt(mean_squared_error(y_train,y_pred_train))
+print("Root Mean Squared Error for train set: {}".format(rmse_train))
+print("Root Mean Squared Error for test set: {}".format(rmse_test))
+
+#SVM on 3 components
+
+# Instantiate an RBF SVM
+svr_pca =SVR()
+
+# Fit the regressor to the training data
+svr_pca.fit(X_train_pca,y_train_pca)
+
+# Predict on the test data: y_pred
+y_pred_train = svr_pca.predict(X_train_pca)
+y_pred_test = svr_pca.predict(X_test_pca)
+
+# Compute and print R^2 and RMSE
+print("R^2 for train set: {}".format(reg_pca.score(X_train_pca, y_train_pca)))
+print("R^2 for test set: {}".format(reg_pca.score(X_test_pca, y_test_pca)))
+rmse_test = np.sqrt(mean_squared_error(y_test_pca,y_pred_test))
+rmse_train = np.sqrt(mean_squared_error(y_train_pca,y_pred_train))
+print("Root Mean Squared Error for train set: {}".format(rmse_train))
+print("Root Mean Squared Error for test set: {}".format(rmse_test))
