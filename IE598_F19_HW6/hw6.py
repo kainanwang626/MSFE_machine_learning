@@ -44,3 +44,7 @@ score = cross_val_score(clf,X_test,y_test,cv=10)
 print("individual fold accuracy scores:",score)
 print("mean:",np.mean(score),"std:",np.std(score))
  
+    
+print("My name is {Kainan Wang}")
+print("My NetID is: {kainanw2}")
+print("I hereby certify that I have read the University policy on Academic Integrity and that I am not in violation.")
